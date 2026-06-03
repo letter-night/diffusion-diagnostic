@@ -112,6 +112,81 @@ price shown at deploy time.)
 7. **When done:** download `results/`, then **terminate the pod** (and delete the volume if you
    don't need the cached weights) to stop all charges.
 
+### Pod bootstrap script
+Paste this into the pod's web terminal (or save as `setup.sh` and run `bash setup.sh`). It is the
+standalone file `setup.sh` shipped alongside this task. It installs Claude Code, creates a pinned
+Python venv, sets the HF cache onto the network volume, and verifies the GPU. It is **idempotent**
+— safe to re-run after a Community-Cloud interruption.
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+# --- 0. Workspace on the persistent volume -----------------------------------
+# RunPod mounts the network volume at /workspace by default. Keep repo + weights here
+# so they survive pod restarts / spot interruptions.
+export WORKDIR=/workspace
+mkdir -p "$WORKDIR"
+cd "$WORKDIR"
+
+# --- 1. HF cache on the volume (so the ~16 GB weights are downloaded only once) ---
+export HF_HOME="$WORKDIR/.hf"
+mkdir -p "$HF_HOME"
+# Persist these env vars for future shells:
+{
+  echo "export WORKDIR=$WORKDIR"
+  echo "export HF_HOME=$HF_HOME"
+} >> ~/.bashrc
+
+# --- 2. Make sure we use the SUBSCRIPTION, not a stray API key ----------------
+# If you intend to log in with a Pro/Max/Team account, an exported ANTHROPIC_API_KEY
+# would silently switch Claude Code to metered API billing. Unset it here.
+unset ANTHROPIC_API_KEY || true
+
+# --- 3. Install Claude Code (native installer; no Node/npm, avoids root-npm issues) ---
+if ! command -v claude >/dev/null 2>&1; then
+  curl -fsSL https://claude.ai/install.sh | bash
+fi
+# Pick up the PATH entry the installer added:
+source ~/.bashrc 2>/dev/null || true
+export PATH="$HOME/.local/bin:$PATH"
+claude --version
+claude doctor || true   # non-fatal: prints health check
+
+# --- 4. System deps + Python venv --------------------------------------------
+apt-get update -y && apt-get install -y python3-venv git >/dev/null 2>&1 || true
+python3 -m venv "$WORKDIR/venv"
+source "$WORKDIR/venv/bin/activate"
+python -m pip install --upgrade pip
+
+# --- 5. Pinned deps. transformers MUST stay 4.38.2 for LLaDA's custom modeling code ---
+# (Do not let anything upgrade it. Install torch matching the pod's CUDA if not present.)
+python - <<'PY'
+import importlib.util, sys
+print("torch present:", importlib.util.find_spec("torch") is not None)
+PY
+pip install "transformers==4.38.2" "tokenizers<0.16" \
+            numpy pandas pyyaml matplotlib tqdm accelerate
+# Sanity: confirm the pin held
+python -c "import transformers; assert transformers.__version__=='4.38.2', transformers.__version__; print('transformers', transformers.__version__)"
+
+# --- 6. Verify the GPU --------------------------------------------------------
+nvidia-smi
+python -c "import torch; print('CUDA available:', torch.cuda.is_available(), '| device:', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'none')"
+
+echo
+echo "Bootstrap complete."
+echo "  - Activate the venv in new shells with:  source $WORKDIR/venv/bin/activate"
+echo "  - Clone your repo into $WORKDIR, then run:  claude"
+echo "  - First time: 'claude' will prompt you to authenticate with your subscription account."
+```
+
+After it finishes: `cd /workspace`, clone or copy in your repo plus
+`CLAUDE_TASK_diagnostic_study.md` and `PROMPT_PACK_diagnostic_study.md`, then launch `claude`.
+Remember Claude Code uses no GPU itself — only your LLaDA sampling does — so consider doing the
+`--dry-run` scaffolding before you start paying for A40 time, and reserve the A40 for the actual
+sampling runs.
+
 ---
 
 ## Case Studies (prompt templates × distributional axes)

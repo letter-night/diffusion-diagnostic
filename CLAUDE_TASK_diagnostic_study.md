@@ -61,6 +61,59 @@ smaller/cheaper comparison).
 
 ---
 
+## Compute / Environment Setup (RunPod)
+
+This is an **inference-only** job: one frozen 8B model, no training. The constraint is VRAM
+(LLaDA-8B in bf16 ≈ 16 GB of weights), and the cost driver is wall-clock time, since LLaDA
+samples by iterative denoising (~128 steps/sample). Run in **bf16, not quantized** — quantization
+can shift the very output distribution we are trying to measure.
+
+### GPU choice (pick one, in order of recommendation)
+- **RTX 4090 (24 GB) — default.** Fits the model in bf16 with room for modest batching, fast, and
+  the cheapest 24 GB option that runs full precision. Single-GPU (no NVLink) is fine here.
+- **A40 (48 GB) — if you want headroom / bigger batches.** The extra VRAM lets you batch many
+  completions per forward pass, which directly cuts wall-clock time on a job that draws thousands
+  of samples. Often the best value-per-VRAM.
+- **A100 80 GB — if you want it finished fast.** Most throughput; worth it only if the 4090/A40
+  are too slow for your sample counts.
+- Avoid anything under 24 GB at bf16. A 3090 (24 GB) technically works but is slower than a 4090
+  for similar cost-effectiveness on a time-billed job.
+
+### Cloud type & billing
+- Use **Community Cloud** (cheapest; this is a checkpoint-tolerant batch job, so occasional
+  interruptions are acceptable — see resumable sampling below). Secure Cloud is for production.
+- RunPod bills **by the second** — terminate the pod the moment sampling finishes. Note that
+  **network/volume storage keeps charging while a pod is stopped**, so for a short project either
+  download results and terminate, or keep only a small volume to cache the HF weights.
+
+### Suggested budget
+The whole study is small. Realistic envelope: ~2–4 h debugging + ~5–15 h sampling (pilot through
+scale-up) ≈ **10–20 GPU-hours**. At Community-Cloud rates (4090 ≈ $0.34–0.69/hr, A40 ≈ $0.44/hr,
+A100 80 GB ≈ $0.89/hr) that is roughly **$5–$15 total**. **Load ~$25 in credits** for comfortable
+margin; you will likely spend well under that. (Rates fluctuate with supply — confirm the live
+price shown at deploy time.)
+
+### Launch checklist
+1. **Pod template:** start from a recent **RunPod PyTorch** template. Attach a small **network
+   volume (~30–50 GB)** mounted at the HF cache (`HF_HOME`) so the 16 GB weights survive pod
+   restarts and you don't re-download on every spot interruption.
+2. **Pin versions:** the LLaDA repo expects `transformers==4.38.2` with `trust_remote_code=True`.
+   Install into a fresh venv and **do not** let the base image's newer `transformers` override it;
+   verify a single coherent generation before scaling.
+3. **Confirm the GPU:** run `nvidia-smi` first; check it shows the expected card and ~24/48/80 GB.
+4. **Load in bf16:** `torch_dtype=torch.bfloat16`, `device_map` to the single GPU. Watch VRAM with
+   `nvidia-smi` during a test batch and raise/lower the sampling batch size to fill the card
+   without OOM.
+5. **Make sampling resumable:** write each completion to `results/raw/*.jsonl` immediately (append),
+   key every record by `sample_id`, and on startup skip `sample_id`s already on disk. This way a
+   killed Community-Cloud pod just resumes where it stopped.
+6. **Validate cheaply first:** run the pipeline with `--dry-run` (no GPU) to confirm the
+   annotate → metrics → report path, then do one tiny real batch (n≈4) before the full run.
+7. **When done:** download `results/`, then **terminate the pod** (and delete the volume if you
+   don't need the cached weights) to stop all charges.
+
+---
+
 ## Case Studies (prompt templates × distributional axes)
 
 Implement these as a config-driven list so new cases are easy to add. Each case = a prompt

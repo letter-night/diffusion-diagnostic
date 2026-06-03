@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.hf/
+results/raw/
+results/annotations/
+results/aggregate/
+results/figures/
+results/report.md
+.pytest_cache/

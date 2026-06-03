@@ -1,0 +1,44 @@
+# Model + sampling configuration. Sampling hyperparameters are logged with every
+# completion because results are settings-dependent.
+
+defaults:
+  sampling:
+    steps: 128
+    gen_length: 256
+    block_length: 32
+    temperature: 0.0
+    remasking: low_confidence
+
+models:
+  dry_run:
+    backend: dry_run
+    model_name: dry-run-stub
+    # Controls the synthetic skew so the diagnostic is demonstrable without a GPU.
+    dry_run:
+      invalid_metadata_rate: 0.04   # fraction with missing/malformed metadata line
+      # Per-case skew strength in [0,1]; higher = more collapsed onto the modal bucket.
+      skew: 0.7
+
+  llada:
+    backend: llada
+    model_name: LLaDA-8B-Instruct
+    hf_repo: GSAI-ML/LLaDA-8B-Instruct
+    dtype: bfloat16
+    trust_remote_code: true
+    transformers_version: "4.38.2"
+    sampling:
+      steps: 128
+      gen_length: 256
+      block_length: 32
+      temperature: 0.0
+      remasking: low_confidence
+
+  mdlm:
+    backend: mdlm
+    model_name: MDLM-base
+    hf_repo: kuleshov-group/mdlm
+    dtype: bfloat16
+    trust_remote_code: true
+    sampling:
+      steps: 128
+      gen_length: 256

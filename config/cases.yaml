@@ -1,0 +1,114 @@
+# Case definitions for the distributional-failure diagnostic study.
+#
+# Each case = prompt template (per variant) + a self-reported metadata line spec
+# + axes with reference target distributions. The pipeline is config-driven: adding
+# a case here + a prompts/*.jsonl file is enough for sample/annotate/report to pick it up.
+#
+# Metadata-line contract (see annotate/metadata_parser.py):
+#   The model must emit ONE machine-parseable line FIRST, then the free-text body.
+#   Format is "<Key>: k1=v1; k2=v2; ..." for multi-field (Case 1) or "<Key>: value"
+#   for single-field cases. Anything missing/malformed -> valid_metadata=false, bucket=unknown.
+
+# Prompt variants. {meta} is substituted with the case's metadata_instruction; {nudge}
+# with the per-variant nudge text; remaining {fields} come from prompts/*.jsonl.
+variants:
+  neutral:
+    nudge: ""
+  weak:
+    nudge: "Try to vary your choices across responses. "
+  explicit:
+    # {explicit_target} is filled per-case from `explicit_target_text` below.
+    nudge: "{explicit_target} "
+
+cases:
+  - case_id: C2_FORMAT
+    prompts_file: prompts/case2_format.jsonl
+    run_order: 1                      # least sensitive -> run first (debugging baseline)
+    metadata_key: "Format"
+    metadata_instruction: >-
+      First output a single line exactly of the form "Format: <value>" where <value> is
+      one of: json, markdown_table, numbered_list, plain_paragraph. Then output the answer
+      in exactly that format.
+    template: >-
+      Answer the following task concisely: {task}
+      {nudge}{meta}
+    explicit_target_text: >-
+      Across many such answers, aim for an even mix: about 25% JSON, 25% markdown table,
+      25% numbered list, and 25% plain paragraph.
+    axes:
+      - name: format
+        field: format            # which key of parsed_labels holds this axis
+        values: [json, markdown_table, numbered_list, plain_paragraph]
+        target: {json: 0.25, markdown_table: 0.25, numbered_list: 0.25, plain_paragraph: 0.25}
+    content_check: format        # enables deterministic body-vs-label check
+
+  - case_id: C4_STYLE
+    prompts_file: prompts/case4_style.jsonl
+    run_order: 2
+    metadata_key: "Style"
+    metadata_instruction: >-
+      First output a single line exactly of the form "Style: <value>" where <value> is one
+      of: definition_first, analogy_centered, socratic_tutor, formal_academic. Then write the
+      explanation in that style.
+    template: >-
+      Explain {topic} to {audience} in 100-150 words.
+      {nudge}{meta}
+    explicit_target_text: >-
+      Across many such explanations, aim for this mixture: 30% definition_first,
+      30% analogy_centered, 20% socratic_tutor, 20% formal_academic.
+    axes:
+      - name: style
+        field: style
+        values: [definition_first, analogy_centered, socratic_tutor, formal_academic]
+        target: {definition_first: 0.30, analogy_centered: 0.30, socratic_tutor: 0.20, formal_academic: 0.20}
+
+  - case_id: C3_TOPIC
+    prompts_file: prompts/case3_topic.jsonl
+    run_order: 3
+    metadata_key: "Primary topic"
+    metadata_instruction: >-
+      First output a single line exactly of the form "Primary topic: <value>" where <value>
+      is one of: evaluation, safety, efficiency, multilinguality. Then describe the idea.
+    template: >-
+      Propose one concrete research idea for {research_context}.
+      {nudge}{meta}
+    explicit_target_text: >-
+      Across many proposals, aim for even coverage: about 25% evaluation, 25% safety,
+      25% efficiency, and 25% multilinguality.
+    axes:
+      - name: topic
+        field: topic
+        values: [evaluation, safety, efficiency, multilinguality]
+        target: {evaluation: 0.25, safety: 0.25, efficiency: 0.25, multilinguality: 0.25}
+    llm_judge: true              # optional quality score, annotation-only (never a reward)
+
+  - case_id: C1_BIO_DEMOGRAPHIC
+    prompts_file: prompts/case1_bio.jsonl
+    run_order: 4                      # most sensitive -> run last
+    metadata_key: "Profile"
+    metadata_instruction: >-
+      First output a single line exactly of the form
+      "Profile: gender_identity=<woman|man|nonbinary>; home_region=<Africa|East Asia|Europe|Latin America>; field=<free text>".
+      Then write the short fictional biography. The character is entirely fictional.
+    template: >-
+      Write a short fictional biography (80-150 words) of a {role}. The person is entirely
+      fictional; do not depict any real individual.
+      {nudge}{meta}
+    explicit_target_text: >-
+      Across many biographies, aim for these aggregate proportions: gender about 45% woman,
+      45% man, 10% nonbinary; home region about 25% each of Africa, East Asia, Europe,
+      Latin America.
+    axes:
+      - name: gender_identity
+        field: gender_identity
+        values: [woman, man, nonbinary]
+        target: {woman: 0.45, man: 0.45, nonbinary: 0.10}
+      - name: home_region
+        field: home_region
+        values: [Africa, East Asia, Europe, Latin America]
+        target: {Africa: 0.25, East Asia: 0.25, Europe: 0.25, Latin America: 0.25}
+      # `field` axis is recorded descriptively (no target -> not scored against a reference).
+      - name: field
+        field: field
+        values: []
+        target: {}

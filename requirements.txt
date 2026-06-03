@@ -1,0 +1,13 @@
+# Core pipeline (annotation/metrics/aggregation/report) — pure-Python + light deps.
+numpy
+pandas
+pyyaml
+matplotlib
+tqdm
+
+# Sampling backends (only needed on a GPU box; the dry-run stub needs none of these).
+# Pin transformers per the LLaDA requirement; install these on the pod, not for dry-run.
+# torch
+# transformers==4.38.2
+# tokenizers<0.16
+# accelerate

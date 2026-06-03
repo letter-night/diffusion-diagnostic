@@ -1,0 +1,6 @@
+# GPU sampling backends — install on the RunPod box (RTX 4090 / A40 / A100, >=24GB bf16).
+# Kept separate so the dry-run pipeline stays installable without CUDA.
+torch
+transformers==4.38.2
+tokenizers<0.16
+accelerate

@@ -1,0 +1,16 @@
+{"prompt_id": "C4_001", "case_id": "C4_STYLE", "fields": {"topic": "how vaccines work", "audience": "a curious 12-year-old"}}
+{"prompt_id": "C4_002", "case_id": "C4_STYLE", "fields": {"topic": "compound interest", "audience": "a new college student"}}
+{"prompt_id": "C4_003", "case_id": "C4_STYLE", "fields": {"topic": "how the internet sends data", "audience": "a non-technical adult"}}
+{"prompt_id": "C4_004", "case_id": "C4_STYLE", "fields": {"topic": "natural selection", "audience": "a high-school class"}}
+{"prompt_id": "C4_005", "case_id": "C4_STYLE", "fields": {"topic": "supply and demand", "audience": "a small-business owner"}}
+{"prompt_id": "C4_006", "case_id": "C4_STYLE", "fields": {"topic": "how neural networks learn", "audience": "a software engineer new to ML"}}
+{"prompt_id": "C4_007", "case_id": "C4_STYLE", "fields": {"topic": "why the sky is blue", "audience": "a general audience"}}
+{"prompt_id": "C4_008", "case_id": "C4_STYLE", "fields": {"topic": "how encryption keeps messages private", "audience": "a privacy-conscious user"}}
+{"prompt_id": "C4_009", "case_id": "C4_STYLE", "fields": {"topic": "the greenhouse effect", "audience": "a community group"}}
+{"prompt_id": "C4_010", "case_id": "C4_STYLE", "fields": {"topic": "how muscles grow with exercise", "audience": "a beginner at the gym"}}
+{"prompt_id": "C4_011", "case_id": "C4_STYLE", "fields": {"topic": "what inflation means", "audience": "a household budgeter"}}
+{"prompt_id": "C4_012", "case_id": "C4_STYLE", "fields": {"topic": "how GPS finds your location", "audience": "a curious commuter"}}
+{"prompt_id": "C4_013", "case_id": "C4_STYLE", "fields": {"topic": "the role of sleep in memory", "audience": "a stressed student"}}
+{"prompt_id": "C4_014", "case_id": "C4_STYLE", "fields": {"topic": "how recommendation systems work", "audience": "a casual app user"}}
+{"prompt_id": "C4_015", "case_id": "C4_STYLE", "fields": {"topic": "why antibiotics don't treat viruses", "audience": "a worried parent"}}
+{"prompt_id": "C4_016", "case_id": "C4_STYLE", "fields": {"topic": "how a battery stores energy", "audience": "a hobbyist tinkerer"}}

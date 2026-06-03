@@ -1,17 +1,38 @@
 """LLaDA-8B-Instruct sampler wrapper (iterative denoising, not autoregressive).
 
-Heavy imports (torch/transformers) are deferred to __init__ so that importing this module
-never breaks a dry-run-only environment. Run on a >=24GB bf16 GPU with transformers==4.38.2.
-
-The denoising loop here follows LLaDA's reference generate() shape (block-wise low-confidence
-remasking). Confirm a single prompt produces coherent, parseable output before scaling
-(spec step 7). If you have the official `generate` from the LLaDA repo on PYTHONPATH, prefer
-wiring that in at `_denoise` instead of this minimal reimplementation.
+The denoising loop is a faithful port of the official reference generate() from
+https://github.com/ML-GSAI/LLaDA (block-wise, low-confidence remasking, Gumbel-noise
+sampling). Heavy imports (torch/transformers) are deferred to __init__ so importing this
+module never breaks a dry-run-only environment. Run on a >=24GB bf16 GPU with
+transformers==4.38.2. Confirm a single prompt yields coherent, parseable output before
+scaling (spec step 7).
 """
 
 from __future__ import annotations
 
 from .base import DiffusionSampler, SamplingParams, GenContext
+
+MASK_ID = 126336  # LLaDA mask token id
+
+
+def _add_gumbel_noise(logits, temperature, torch):
+    if temperature == 0:
+        return logits
+    logits = logits.to(torch.float64)
+    noise = torch.rand_like(logits, dtype=torch.float64)
+    gumbel_noise = (-torch.log(noise)) ** temperature
+    return logits.exp() / gumbel_noise
+
+
+def _num_transfer_tokens(mask_index, steps, torch):
+    mask_num = mask_index.sum(dim=1, keepdim=True)
+    base = mask_num // steps
+    remainder = mask_num % steps
+    out = torch.zeros(mask_num.size(0), steps, device=mask_index.device,
+                      dtype=torch.int64) + base
+    for i in range(mask_num.size(0)):
+        out[i, : remainder[i]] += 1
+    return out
 
 
 class LLaDASampler(DiffusionSampler):
@@ -19,7 +40,7 @@ class LLaDASampler(DiffusionSampler):
 
     def __init__(self, model_cfg: dict):
         super().__init__(model_cfg)
-        import torch  # noqa: F401  (fail loudly here if torch missing)
+        import torch
         import transformers
         from transformers import AutoModel, AutoTokenizer
 
@@ -37,10 +58,9 @@ class LLaDASampler(DiffusionSampler):
         self.model = AutoModel.from_pretrained(
             repo, torch_dtype=dtype, trust_remote_code=trust,
         ).to("cuda").eval()
-        self.mask_id = getattr(self.model.config, "mask_token_id", 126336)
+        self.mask_id = getattr(self.model.config, "mask_token_id", MASK_ID)
 
     def _build_input(self, prompt: str):
-        # LLaDA-Instruct expects the chat template.
         messages = [{"role": "user", "content": prompt}]
         text = self.tokenizer.apply_chat_template(
             messages, add_generation_prompt=True, tokenize=False)
@@ -55,41 +75,60 @@ class LLaDASampler(DiffusionSampler):
         gen = out[0, input_ids.shape[1]:]
         return self.tokenizer.decode(gen, skip_special_tokens=True).strip()
 
-    def _denoise(self, input_ids, params: SamplingParams):
-        """Block-wise iterative denoising with low-confidence remasking."""
+    def _denoise(self, prompt, params: SamplingParams):
+        """Faithful port of the official LLaDA generate() (batch supported, cfg_scale=0)."""
+        import numpy as np
+        import torch.nn.functional as F
         torch = self.torch
-        with torch.no_grad():
-            B, L0 = input_ids.shape
-            gen_len = params.gen_length
-            block = max(1, params.block_length)
-            x = torch.cat([
-                input_ids,
-                torch.full((B, gen_len), self.mask_id, dtype=torch.long, device=input_ids.device),
-            ], dim=1)
-            n_blocks = (gen_len + block - 1) // block
-            steps_per_block = max(1, params.steps // n_blocks)
 
-            for b in range(n_blocks):
-                lo = L0 + b * block
-                hi = min(L0 + (b + 1) * block, L0 + gen_len)
-                for _ in range(steps_per_block):
-                    mask = (x == self.mask_id)
-                    mask[:, :lo] = False
-                    mask[:, hi:] = False
-                    if not mask.any():
-                        break
+        gen_length = params.gen_length
+        block_length = params.block_length
+        steps = params.steps
+        temperature = params.temperature
+        remasking = params.remasking
+        mask_id = self.mask_id
+
+        # The official loop requires these to divide evenly; round to safe values.
+        if gen_length % block_length != 0:
+            block_length = gen_length  # single block fallback
+        num_blocks = gen_length // block_length
+        if steps % num_blocks != 0:
+            steps = (steps // num_blocks) * num_blocks or num_blocks
+        steps_per_block = steps // num_blocks
+
+        with torch.no_grad():
+            x = torch.full((prompt.shape[0], prompt.shape[1] + gen_length), mask_id,
+                           dtype=torch.long, device=self.model.device)
+            x[:, : prompt.shape[1]] = prompt.clone()
+            P = prompt.shape[1]
+
+            for nb in range(num_blocks):
+                blk = x[:, P + nb * block_length: P + (nb + 1) * block_length] == mask_id
+                ntt = _num_transfer_tokens(blk, steps_per_block, torch)
+                for i in range(steps_per_block):
+                    mask_index = (x == mask_id)
                     logits = self.model(x).logits
-                    if params.temperature and params.temperature > 0:
-                        probs = torch.softmax(logits / params.temperature, dim=-1)
-                        pred = torch.multinomial(
-                            probs.view(-1, probs.shape[-1]), 1).view(x.shape)
-                        conf = probs.max(dim=-1).values
+                    logits_noisy = _add_gumbel_noise(logits, temperature, torch)
+                    x0 = torch.argmax(logits_noisy, dim=-1)
+
+                    if remasking == "low_confidence":
+                        p = F.softmax(logits.to(torch.float64), dim=-1)
+                        x0_p = torch.gather(p, dim=-1, index=x0.unsqueeze(-1)).squeeze(-1)
+                    elif remasking == "random":
+                        x0_p = torch.rand((x0.shape[0], x0.shape[1]), device=x0.device)
                     else:
-                        conf, pred = torch.softmax(logits, dim=-1).max(dim=-1)
-                    # Reveal the highest-confidence masked positions; keep the rest masked.
-                    conf = torch.where(mask, conf, torch.full_like(conf, -1.0))
-                    k = max(1, int(mask.sum().item() / max(1, steps_per_block)))
-                    for row in range(B):
-                        idx = torch.topk(conf[row], k=min(k, int(mask[row].sum().item()))).indices
-                        x[row, idx] = pred[row, idx]
+                        raise NotImplementedError(remasking)
+
+                    # never reveal beyond the current block
+                    x0_p[:, P + (nb + 1) * block_length:] = -np.inf
+                    x0 = torch.where(mask_index, x0, x)
+                    confidence = torch.where(mask_index, x0_p, torch.full_like(x0_p, -np.inf))
+
+                    transfer = torch.zeros_like(x0, dtype=torch.bool)
+                    for j in range(confidence.shape[0]):
+                        k = int(ntt[j, i].item())
+                        if k > 0:
+                            _, sel = torch.topk(confidence[j], k=k)
+                            transfer[j, sel] = True
+                    x[transfer] = x0[transfer]
             return x

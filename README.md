@@ -8,6 +8,39 @@ quantitative evidence that base sampling — and prompting — do not directly s
 > Scope: **no fine-tuning, no GDC, no reward models, no λ-solving.** This repo only samples,
 > annotates self-declared metadata, and aggregates the empirical distribution vs. a reference.
 
+## Findings (LLaDA-8B-Instruct)
+
+Real run: **576 completions** (12 prompts × 4 seeds per case×variant), bf16 on an A40,
+official LLaDA denoising (`steps=128, gen_length=256, block_length=32, temperature=0,
+remasking=low_confidence`). Full report, tables, and figures: [`results/llada/`](results/llada/).
+
+**Total variation distance vs. target** (0 = matches target; 0.75/0.70 ≈ collapse onto one bucket):
+
+| case / axis | neutral | weak | explicit |
+| --- | --- | --- | --- |
+| C2 format | **0.750** | **0.750** | 0.357 |
+| C4 style | **0.700** | **0.700** | **0.700** |
+| C3 topic | 0.365 | 0.500 | 0.333 |
+| C1 gender | 0.467 | 0.450 | 0.300 |
+| C1 region | 0.500 | 0.568 | 0.409 |
+
+**Dominant bucket under neutral prompting:** format → **100% plain_paragraph** (target 25%);
+style → **100% analogy_centered** (target 30%); topic → **62% evaluation** (target 25%);
+gender → **92% man** (target 45%); region → **50% East Asia** (target 25%).
+
+Takeaways:
+1. **Real distributional collapse** — two axes fall onto a single bucket 100% of the time.
+2. **Prompting does not reliably fix it.** "Try to vary" (weak) helped nowhere (and made
+   topic/region slightly worse); explicit numeric targets helped some axes but did **nothing**
+   for style (0.70 → 0.70) and never reached target on any axis — exactly the gap Diffusion-GDC
+   motivates.
+3. **Label-vs-content gap** — under explicit pressure on Case 2 the model *declares* varied
+   formats but the body stops conforming (`format_label_matches_body` → 0%).
+4. **Metadata reliability** — invalid-label rate **0%** across all cases on the real model.
+
+> Pilot caveat: n=48 per case×variant gives wide CIs on small buckets; scale `--n-per-prompt`
+> for tighter intervals. The synthetic dry-run example (`results/`) only validates the pipeline.
+
 ## How it works
 
 Each prompt asks the model to emit **one machine-parseable metadata line first**, then the
@@ -73,7 +106,8 @@ src/
   annotate/  metadata_parser.py, content_checks.py, llm_judge.py (annotation-only)
   metrics.py aggregate.py report.py run.py (CLI)
 tests/       metrics, metadata parser, content checks, end-to-end dry-run
-results/     raw/ annotations/ aggregate/ figures/ report.md
+results/     dry-run example (report.md, aggregate/, figures/); raw/ + annotations/ gitignored
+results/llada/   real LLaDA-8B-Instruct outputs (report.md, aggregate/, figures/, README.md)
 ```
 
 ## Guardrails

@@ -1,0 +1,250 @@
+{
+  "case_id": "C1_BIO_DEMOGRAPHIC",
+  "variant": "weak",
+  "model_name": "dry-run-stub",
+  "n_completions": 768,
+  "n_prompts": 24,
+  "invalid_metadata_rate": 0.037760416666666664,
+  "diversity": {
+    "distinct_2": 0.002034211742949607,
+    "distinct_3": 0.002189708370657908,
+    "repetition_rate": 0.0,
+    "type_token_ratio": 0.001899335232668566
+  },
+  "axes": [
+    {
+      "axis": "gender_identity",
+      "field": "gender_identity",
+      "n": 768,
+      "scored": true,
+      "support": [
+        "woman",
+        "man",
+        "nonbinary",
+        "unknown"
+      ],
+      "counts": {
+        "woman": 99,
+        "man": 542,
+        "nonbinary": 98,
+        "unknown": 29
+      },
+      "empirical": {
+        "woman": 0.12890625,
+        "man": 0.7057291666666666,
+        "nonbinary": 0.12760416666666666,
+        "unknown": 0.037760416666666664
+      },
+      "target": {
+        "woman": 0.45,
+        "man": 0.45,
+        "nonbinary": 0.1
+      },
+      "unknown_rate": 0.037760416666666664,
+      "normalized_entropy": 0.6959663417486984,
+      "kl_vs_uniform": 1.7370067238067166,
+      "empirical_scored": {
+        "woman": 0.13396481732070364,
+        "man": 0.7334235453315291,
+        "nonbinary": 0.13261163734776726
+      },
+      "tv": 0.31603518267929637,
+      "l1": 0.6320703653585927,
+      "l2": 0.4257589243103799,
+      "kl_vs_target": 0.3366798473723994,
+      "tv_ci": {
+        "point": 0.31603518267929637,
+        "lo": 0.2880494120940649,
+        "hi": 0.34160172383809395
+      },
+      "proportion_ci": {
+        "woman": {
+          "point": 0.12890625,
+          "lo": 0.10416666666666667,
+          "hi": 0.15625
+        },
+        "man": {
+          "point": 0.7057291666666666,
+          "lo": 0.671875,
+          "hi": 0.7369791666666666
+        },
+        "nonbinary": {
+          "point": 0.12760416666666666,
+          "lo": 0.10286458333333333,
+          "hi": 0.15494791666666666
+        }
+      }
+    },
+    {
+      "axis": "home_region",
+      "field": "home_region",
+      "n": 768,
+      "scored": true,
+      "support": [
+        "Africa",
+        "East Asia",
+        "Europe",
+        "Latin America",
+        "unknown"
+      ],
+      "counts": {
+        "Africa": 77,
+        "East Asia": 85,
+        "Europe": 515,
+        "Latin America": 62,
+        "unknown": 29
+      },
+      "empirical": {
+        "Africa": 0.10026041666666667,
+        "East Asia": 0.11067708333333333,
+        "Europe": 0.6705729166666666,
+        "Latin America": 0.08072916666666667,
+        "unknown": 0.037760416666666664
+      },
+      "target": {
+        "Africa": 0.25,
+        "East Asia": 0.25,
+        "Europe": 0.25,
+        "Latin America": 0.25
+      },
+      "unknown_rate": 0.037760416666666664,
+      "normalized_entropy": 0.6809252196877255,
+      "kl_vs_uniform": 1.887373606954689,
+      "empirical_scored": {
+        "Africa": 0.10419485791610285,
+        "East Asia": 0.11502029769959404,
+        "Europe": 0.6968876860622463,
+        "Latin America": 0.08389715832205684
+      },
+      "tv": 0.44688768606224627,
+      "l1": 0.8937753721244925,
+      "l2": 0.5165050023559968,
+      "kl_vs_target": 0.6381495606245493,
+      "tv_ci": {
+        "point": 0.44688768606224627,
+        "lo": 0.4126180836707153,
+        "hi": 0.4817793747485239
+      },
+      "proportion_ci": {
+        "Africa": {
+          "point": 0.10026041666666667,
+          "lo": 0.07421875,
+          "hi": 0.12890625
+        },
+        "East Asia": {
+          "point": 0.11067708333333333,
+          "lo": 0.09375,
+          "hi": 0.13020833333333334
+        },
+        "Europe": {
+          "point": 0.6705729166666666,
+          "lo": 0.6393229166666666,
+          "hi": 0.7018229166666666
+        },
+        "Latin America": {
+          "point": 0.08072916666666667,
+          "lo": 0.06380208333333333,
+          "hi": 0.09765625
+        }
+      }
+    },
+    {
+      "axis": "field",
+      "field": "field",
+      "n": 768,
+      "scored": false,
+      "support": [
+        "glaciology",
+        "particle physics",
+        "unknown",
+        "marine ecology",
+        "agronomy"
+      ],
+      "counts": {
+        "glaciology": 77,
+        "particle physics": 515,
+        "unknown": 29,
+        "marine ecology": 85,
+        "agronomy": 62
+      },
+      "empirical": {
+        "glaciology": 0.10026041666666667,
+        "particle physics": 0.6705729166666666,
+        "unknown": 0.037760416666666664,
+        "marine ecology": 0.11067708333333333,
+        "agronomy": 0.08072916666666667
+      },
+      "target": {},
+      "unknown_rate": 0.037760416666666664,
+      "normalized_entropy": 0.6809252196877255,
+      "kl_vs_uniform": 1.887373606954689
+    }
+  ],
+  "joint_gender_region": [
+    [
+      "man",
+      "Africa",
+      59
+    ],
+    [
+      "woman",
+      "Europe",
+      70
+    ],
+    [
+      "nonbinary",
+      "Europe",
+      73
+    ],
+    [
+      "unknown",
+      "unknown",
+      29
+    ],
+    [
+      "man",
+      "Europe",
+      372
+    ],
+    [
+      "nonbinary",
+      "Africa",
+      9
+    ],
+    [
+      "woman",
+      "Africa",
+      9
+    ],
+    [
+      "man",
+      "East Asia",
+      64
+    ],
+    [
+      "man",
+      "Latin America",
+      47
+    ],
+    [
+      "nonbinary",
+      "Latin America",
+      8
+    ],
+    [
+      "nonbinary",
+      "East Asia",
+      8
+    ],
+    [
+      "woman",
+      "East Asia",
+      13
+    ],
+    [
+      "woman",
+      "Latin America",
+      7
+    ]
+  ]
+}

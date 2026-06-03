@@ -1,0 +1,58 @@
+case_id,variant,model,axis,bucket,achieved,target,ci_lo,ci_hi,tv,l1,l2,kl_vs_target,norm_entropy,unknown_rate,invalid_metadata_rate
+C2_FORMAT,neutral,dry-run-stub,format,json,0.7734,0.25,0.7083,0.7747,0.5234,1.0468,0.6045,0.8704,0.5648,0.0404,0.0404
+C2_FORMAT,neutral,dry-run-stub,format,markdown_table,0.0855,0.25,0.0586,0.1042,0.5234,1.0468,0.6045,0.8704,0.5648,0.0404,0.0404
+C2_FORMAT,neutral,dry-run-stub,format,numbered_list,0.0678,0.25,0.0442,0.0885,0.5234,1.0468,0.6045,0.8704,0.5648,0.0404,0.0404
+C2_FORMAT,neutral,dry-run-stub,format,plain_paragraph,0.0733,0.25,0.0521,0.0885,0.5234,1.0468,0.6045,0.8704,0.5648,0.0404,0.0404
+C2_FORMAT,weak,dry-run-stub,format,json,0.7079,0.25,0.651,0.7161,0.4579,0.9159,0.5288,0.6658,0.6671,0.0326,0.0326
+C2_FORMAT,weak,dry-run-stub,format,markdown_table,0.0956,0.25,0.0703,0.1159,0.4579,0.9159,0.5288,0.6658,0.6671,0.0326,0.0326
+C2_FORMAT,weak,dry-run-stub,format,numbered_list,0.0996,0.25,0.0677,0.125,0.4579,0.9159,0.5288,0.6658,0.6671,0.0326,0.0326
+C2_FORMAT,weak,dry-run-stub,format,plain_paragraph,0.0969,0.25,0.0742,0.112,0.4579,0.9159,0.5288,0.6658,0.6671,0.0326,0.0326
+C2_FORMAT,explicit,dry-run-stub,format,json,0.6391,0.25,0.582,0.6432,0.3891,0.7782,0.4494,0.4854,0.7573,0.0404,0.0404
+C2_FORMAT,explicit,dry-run-stub,format,markdown_table,0.1303,0.25,0.1029,0.1484,0.3891,0.7782,0.4494,0.4854,0.7573,0.0404,0.0404
+C2_FORMAT,explicit,dry-run-stub,format,numbered_list,0.1153,0.25,0.0938,0.1289,0.3891,0.7782,0.4494,0.4854,0.7573,0.0404,0.0404
+C2_FORMAT,explicit,dry-run-stub,format,plain_paragraph,0.1153,0.25,0.0885,0.1354,0.3891,0.7782,0.4494,0.4854,0.7573,0.0404,0.0404
+C4_STYLE,neutral,dry-run-stub,style,definition_first,0.7794,0.3,0.6973,0.7793,0.4794,0.9588,0.5625,0.728,0.5509,0.0527,0.0527
+C4_STYLE,neutral,dry-run-stub,style,analogy_centered,0.0619,0.3,0.043,0.0742,0.4794,0.9588,0.5625,0.728,0.5509,0.0527,0.0527
+C4_STYLE,neutral,dry-run-stub,style,socratic_tutor,0.0598,0.2,0.0391,0.0762,0.4794,0.9588,0.5625,0.728,0.5509,0.0527,0.0527
+C4_STYLE,neutral,dry-run-stub,style,formal_academic,0.099,0.2,0.0684,0.125,0.4794,0.9588,0.5625,0.728,0.5509,0.0527,0.0527
+C4_STYLE,weak,dry-run-stub,style,definition_first,0.7253,0.3,0.666,0.7383,0.4253,0.8505,0.5001,0.57,0.6396,0.0332,0.0332
+C4_STYLE,weak,dry-run-stub,style,analogy_centered,0.0828,0.3,0.0547,0.1055,0.4253,0.8505,0.5001,0.57,0.6396,0.0332,0.0332
+C4_STYLE,weak,dry-run-stub,style,socratic_tutor,0.1111,0.2,0.0801,0.1348,0.4253,0.8505,0.5001,0.57,0.6396,0.0332,0.0332
+C4_STYLE,weak,dry-run-stub,style,formal_academic,0.0808,0.2,0.0546,0.1016,0.4253,0.8505,0.5001,0.57,0.6396,0.0332,0.0332
+C4_STYLE,explicit,dry-run-stub,style,definition_first,0.5809,0.3,0.5039,0.5879,0.2809,0.5618,0.3368,0.2599,0.8222,0.0586,0.0586
+C4_STYLE,explicit,dry-run-stub,style,analogy_centered,0.1328,0.3,0.0918,0.1582,0.2809,0.5618,0.3368,0.2599,0.8222,0.0586,0.0586
+C4_STYLE,explicit,dry-run-stub,style,socratic_tutor,0.1494,0.2,0.1113,0.1699,0.2809,0.5618,0.3368,0.2599,0.8222,0.0586,0.0586
+C4_STYLE,explicit,dry-run-stub,style,formal_academic,0.1369,0.2,0.1074,0.1504,0.2809,0.5618,0.3368,0.2599,0.8222,0.0586,0.0586
+C3_TOPIC,neutral,dry-run-stub,topic,evaluation,0.1061,0.25,0.0742,0.1348,0.5173,1.0347,0.5987,0.8629,0.5685,0.043,0.043
+C3_TOPIC,neutral,dry-run-stub,topic,safety,0.0755,0.25,0.0527,0.0918,0.5173,1.0347,0.5987,0.8629,0.5685,0.043,0.043
+C3_TOPIC,neutral,dry-run-stub,topic,efficiency,0.7673,0.25,0.6992,0.7715,0.5173,1.0347,0.5987,0.8629,0.5685,0.043,0.043
+C3_TOPIC,neutral,dry-run-stub,topic,multilinguality,0.051,0.25,0.0293,0.0703,0.5173,1.0347,0.5987,0.8629,0.5685,0.043,0.043
+C3_TOPIC,weak,dry-run-stub,topic,evaluation,0.0813,0.25,0.0605,0.0957,0.4573,0.9146,0.5284,0.667,0.6665,0.0391,0.0391
+C3_TOPIC,weak,dry-run-stub,topic,safety,0.1057,0.25,0.084,0.1191,0.4573,0.9146,0.5284,0.667,0.6665,0.0391,0.0391
+C3_TOPIC,weak,dry-run-stub,topic,efficiency,0.7073,0.25,0.6387,0.7227,0.4573,0.9146,0.5284,0.667,0.6665,0.0391,0.0391
+C3_TOPIC,weak,dry-run-stub,topic,multilinguality,0.1057,0.25,0.0762,0.1328,0.4573,0.9146,0.5284,0.667,0.6665,0.0391,0.0391
+C3_TOPIC,explicit,dry-run-stub,topic,evaluation,0.1548,0.25,0.1211,0.1758,0.3447,0.6894,0.3988,0.3868,0.8066,0.041,0.041
+C3_TOPIC,explicit,dry-run-stub,topic,safety,0.1222,0.25,0.0937,0.1387,0.3447,0.6894,0.3988,0.3868,0.8066,0.041,0.041
+C3_TOPIC,explicit,dry-run-stub,topic,efficiency,0.5947,0.25,0.5273,0.6152,0.3447,0.6894,0.3988,0.3868,0.8066,0.041,0.041
+C3_TOPIC,explicit,dry-run-stub,topic,multilinguality,0.1283,0.25,0.0957,0.1504,0.3447,0.6894,0.3988,0.3868,0.8066,0.041,0.041
+C1_BIO_DEMOGRAPHIC,neutral,dry-run-stub,gender_identity,woman,0.0989,0.45,0.069,0.1224,0.3511,0.7022,0.4954,0.449,0.5827,0.0391,0.0391
+C1_BIO_DEMOGRAPHIC,neutral,dry-run-stub,gender_identity,man,0.7995,0.45,0.7396,0.8008,0.3511,0.7022,0.4954,0.449,0.5827,0.0391,0.0391
+C1_BIO_DEMOGRAPHIC,neutral,dry-run-stub,gender_identity,nonbinary,0.1016,0.1,0.0742,0.1211,0.3511,0.7022,0.4954,0.449,0.5827,0.0391,0.0391
+C1_BIO_DEMOGRAPHIC,neutral,dry-run-stub,home_region,Africa,0.0745,0.25,0.0547,0.0898,0.5169,1.0339,0.5971,0.8493,0.5753,0.0391,0.0391
+C1_BIO_DEMOGRAPHIC,neutral,dry-run-stub,home_region,East Asia,0.0691,0.25,0.0508,0.0833,0.5169,1.0339,0.5971,0.8493,0.5753,0.0391,0.0391
+C1_BIO_DEMOGRAPHIC,neutral,dry-run-stub,home_region,Europe,0.7669,0.25,0.7096,0.7656,0.5169,1.0339,0.5971,0.8493,0.5753,0.0391,0.0391
+C1_BIO_DEMOGRAPHIC,neutral,dry-run-stub,home_region,Latin America,0.0894,0.25,0.0651,0.1068,0.5169,1.0339,0.5971,0.8493,0.5753,0.0391,0.0391
+C1_BIO_DEMOGRAPHIC,weak,dry-run-stub,gender_identity,woman,0.134,0.45,0.1042,0.1562,0.316,0.6321,0.4258,0.3367,0.696,0.0378,0.0378
+C1_BIO_DEMOGRAPHIC,weak,dry-run-stub,gender_identity,man,0.7334,0.45,0.6719,0.737,0.316,0.6321,0.4258,0.3367,0.696,0.0378,0.0378
+C1_BIO_DEMOGRAPHIC,weak,dry-run-stub,gender_identity,nonbinary,0.1326,0.1,0.1029,0.1549,0.316,0.6321,0.4258,0.3367,0.696,0.0378,0.0378
+C1_BIO_DEMOGRAPHIC,weak,dry-run-stub,home_region,Africa,0.1042,0.25,0.0742,0.1289,0.4469,0.8938,0.5165,0.6381,0.6809,0.0378,0.0378
+C1_BIO_DEMOGRAPHIC,weak,dry-run-stub,home_region,East Asia,0.115,0.25,0.0938,0.1302,0.4469,0.8938,0.5165,0.6381,0.6809,0.0378,0.0378
+C1_BIO_DEMOGRAPHIC,weak,dry-run-stub,home_region,Europe,0.6969,0.25,0.6393,0.7018,0.4469,0.8938,0.5165,0.6381,0.6809,0.0378,0.0378
+C1_BIO_DEMOGRAPHIC,weak,dry-run-stub,home_region,Latin America,0.0839,0.25,0.0638,0.0977,0.4469,0.8938,0.5165,0.6381,0.6809,0.0378,0.0378
+C1_BIO_DEMOGRAPHIC,explicit,dry-run-stub,gender_identity,woman,0.1626,0.45,0.1419,0.1745,0.2874,0.5747,0.3602,0.2766,0.8118,0.0312,0.0312
+C1_BIO_DEMOGRAPHIC,explicit,dry-run-stub,gender_identity,man,0.6478,0.45,0.5924,0.6628,0.2874,0.5747,0.3602,0.2766,0.8118,0.0312,0.0312
+C1_BIO_DEMOGRAPHIC,explicit,dry-run-stub,gender_identity,nonbinary,0.1895,0.1,0.1628,0.2057,0.2874,0.5747,0.3602,0.2766,0.8118,0.0312,0.0312
+C1_BIO_DEMOGRAPHIC,explicit,dry-run-stub,home_region,Africa,0.1358,0.25,0.1029,0.1589,0.3656,0.7312,0.4226,0.4316,0.7842,0.0312,0.0312
+C1_BIO_DEMOGRAPHIC,explicit,dry-run-stub,home_region,East Asia,0.1129,0.25,0.0846,0.1354,0.3656,0.7312,0.4226,0.4316,0.7842,0.0312,0.0312
+C1_BIO_DEMOGRAPHIC,explicit,dry-run-stub,home_region,Europe,0.6156,0.25,0.5599,0.6341,0.3656,0.7312,0.4226,0.4316,0.7842,0.0312,0.0312
+C1_BIO_DEMOGRAPHIC,explicit,dry-run-stub,home_region,Latin America,0.1358,0.25,0.1042,0.1576,0.3656,0.7312,0.4226,0.4316,0.7842,0.0312,0.0312

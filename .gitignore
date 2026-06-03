@@ -3,9 +3,10 @@ __pycache__/
 .venv/
 venv/
 .hf/
+# Bulky + fully regenerable from `python -m src.run sample/annotate`. Not tracked.
 results/raw/
 results/annotations/
-results/aggregate/
-results/figures/
-results/report.md
+results/annotations/judge_cache.json
+# The human-facing deliverables (report.md, aggregate tables, figures) ARE tracked
+# as an example artifact — see results/EXAMPLE.md. They are dry-run stub outputs.
 .pytest_cache/

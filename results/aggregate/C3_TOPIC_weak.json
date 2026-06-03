@@ -1,0 +1,89 @@
+{
+  "case_id": "C3_TOPIC",
+  "variant": "weak",
+  "model_name": "dry-run-stub",
+  "n_completions": 512,
+  "n_prompts": 16,
+  "invalid_metadata_rate": 0.0390625,
+  "diversity": {
+    "distinct_2": 0.00484027105517909,
+    "distinct_3": 0.006017623038899635,
+    "repetition_rate": 0.0982421875,
+    "type_token_ratio": 0.0031706887440549588
+  },
+  "axes": [
+    {
+      "axis": "topic",
+      "field": "topic",
+      "n": 512,
+      "scored": true,
+      "support": [
+        "evaluation",
+        "safety",
+        "efficiency",
+        "multilinguality",
+        "unknown"
+      ],
+      "counts": {
+        "evaluation": 40,
+        "safety": 52,
+        "efficiency": 348,
+        "multilinguality": 52,
+        "unknown": 20
+      },
+      "empirical": {
+        "evaluation": 0.078125,
+        "safety": 0.1015625,
+        "efficiency": 0.6796875,
+        "multilinguality": 0.1015625,
+        "unknown": 0.0390625
+      },
+      "target": {
+        "evaluation": 0.25,
+        "safety": 0.25,
+        "efficiency": 0.25,
+        "multilinguality": 0.25
+      },
+      "unknown_rate": 0.0390625,
+      "normalized_entropy": 0.6665141723469314,
+      "kl_vs_uniform": 1.9600947181801558,
+      "empirical_scored": {
+        "evaluation": 0.08130081300813008,
+        "safety": 0.10569105691056911,
+        "efficiency": 0.7073170731707317,
+        "multilinguality": 0.10569105691056911
+      },
+      "tv": 0.45731707317073167,
+      "l1": 0.9146341463414633,
+      "l2": 0.5284396495498227,
+      "kl_vs_target": 0.6669716553061371,
+      "tv_ci": {
+        "point": 0.45731707317073167,
+        "lo": 0.4173468352858385,
+        "hi": 0.4964510184841299
+      },
+      "proportion_ci": {
+        "evaluation": {
+          "point": 0.078125,
+          "lo": 0.060546875,
+          "hi": 0.095703125
+        },
+        "safety": {
+          "point": 0.1015625,
+          "lo": 0.083984375,
+          "hi": 0.119140625
+        },
+        "efficiency": {
+          "point": 0.6796875,
+          "lo": 0.638671875,
+          "hi": 0.72265625
+        },
+        "multilinguality": {
+          "point": 0.1015625,
+          "lo": 0.076171875,
+          "hi": 0.1328125
+        }
+      }
+    }
+  ]
+}

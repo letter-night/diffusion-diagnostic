@@ -1,0 +1,90 @@
+{
+  "case_id": "C2_FORMAT",
+  "variant": "explicit",
+  "model_name": "dry-run-stub",
+  "n_completions": 768,
+  "n_prompts": 24,
+  "invalid_metadata_rate": 0.040364583333333336,
+  "diversity": {
+    "distinct_2": 0.007974980453479281,
+    "distinct_3": 0.009952017060600676,
+    "repetition_rate": 0.10164741847826086,
+    "type_token_ratio": 0.005305039787798408
+  },
+  "axes": [
+    {
+      "axis": "format",
+      "field": "format",
+      "n": 768,
+      "scored": true,
+      "support": [
+        "json",
+        "markdown_table",
+        "numbered_list",
+        "plain_paragraph",
+        "unknown"
+      ],
+      "counts": {
+        "json": 471,
+        "markdown_table": 96,
+        "numbered_list": 85,
+        "plain_paragraph": 85,
+        "unknown": 31
+      },
+      "empirical": {
+        "json": 0.61328125,
+        "markdown_table": 0.125,
+        "numbered_list": 0.11067708333333333,
+        "plain_paragraph": 0.11067708333333333,
+        "unknown": 0.040364583333333336
+      },
+      "target": {
+        "json": 0.25,
+        "markdown_table": 0.25,
+        "numbered_list": 0.25,
+        "plain_paragraph": 0.25
+      },
+      "unknown_rate": 0.040364583333333336,
+      "normalized_entropy": 0.7573081862434229,
+      "kl_vs_uniform": 1.8308889402949289,
+      "empirical_scored": {
+        "json": 0.6390773405698779,
+        "markdown_table": 0.13025780189959293,
+        "numbered_list": 0.11533242876526459,
+        "plain_paragraph": 0.11533242876526459
+      },
+      "tv": 0.38907734056987786,
+      "l1": 0.7781546811397557,
+      "l2": 0.4494330655785919,
+      "kl_vs_target": 0.4853836275131545,
+      "tv_ci": {
+        "point": 0.38907734056987786,
+        "lo": 0.35461878593850854,
+        "hi": 0.42306108489907596
+      },
+      "proportion_ci": {
+        "json": {
+          "point": 0.61328125,
+          "lo": 0.58203125,
+          "hi": 0.6432291666666666
+        },
+        "markdown_table": {
+          "point": 0.125,
+          "lo": 0.10286458333333333,
+          "hi": 0.1484375
+        },
+        "numbered_list": {
+          "point": 0.11067708333333333,
+          "lo": 0.09375,
+          "hi": 0.12890625
+        },
+        "plain_paragraph": {
+          "point": 0.11067708333333333,
+          "lo": 0.08854166666666667,
+          "hi": 0.13541666666666666
+        }
+      }
+    }
+  ],
+  "format_label_matches_body_rate": 0.8567708333333334
+}

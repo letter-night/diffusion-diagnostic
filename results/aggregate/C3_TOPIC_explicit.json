@@ -1,0 +1,89 @@
+{
+  "case_id": "C3_TOPIC",
+  "variant": "explicit",
+  "model_name": "dry-run-stub",
+  "n_completions": 512,
+  "n_prompts": 16,
+  "invalid_metadata_rate": 0.041015625,
+  "diversity": {
+    "distinct_2": 0.005219408467040402,
+    "distinct_3": 0.006650933276121004,
+    "repetition_rate": 0.10507897050865798,
+    "type_token_ratio": 0.0031662269129287598
+  },
+  "axes": [
+    {
+      "axis": "topic",
+      "field": "topic",
+      "n": 512,
+      "scored": true,
+      "support": [
+        "evaluation",
+        "safety",
+        "efficiency",
+        "multilinguality",
+        "unknown"
+      ],
+      "counts": {
+        "evaluation": 76,
+        "safety": 60,
+        "efficiency": 292,
+        "multilinguality": 63,
+        "unknown": 21
+      },
+      "empirical": {
+        "evaluation": 0.1484375,
+        "safety": 0.1171875,
+        "efficiency": 0.5703125,
+        "multilinguality": 0.123046875,
+        "unknown": 0.041015625
+      },
+      "target": {
+        "evaluation": 0.25,
+        "safety": 0.25,
+        "efficiency": 0.25,
+        "multilinguality": 0.25
+      },
+      "unknown_rate": 0.041015625,
+      "normalized_entropy": 0.8065988402208054,
+      "kl_vs_uniform": 1.759019294768853,
+      "empirical_scored": {
+        "evaluation": 0.15478615071283094,
+        "safety": 0.12219959266802444,
+        "efficiency": 0.594704684317719,
+        "multilinguality": 0.12830957230142567
+      },
+      "tv": 0.34470468431771895,
+      "l1": 0.6894093686354379,
+      "l2": 0.39878377699492595,
+      "kl_vs_target": 0.3868023195583893,
+      "tv_ci": {
+        "point": 0.34470468431771895,
+        "lo": 0.30040084536662914,
+        "hi": 0.38821684136262846
+      },
+      "proportion_ci": {
+        "evaluation": {
+          "point": 0.1484375,
+          "lo": 0.12109375,
+          "hi": 0.17578125
+        },
+        "safety": {
+          "point": 0.1171875,
+          "lo": 0.09370117187500004,
+          "hi": 0.138671875
+        },
+        "efficiency": {
+          "point": 0.5703125,
+          "lo": 0.52734375,
+          "hi": 0.615234375
+        },
+        "multilinguality": {
+          "point": 0.123046875,
+          "lo": 0.095703125,
+          "hi": 0.150390625
+        }
+      }
+    }
+  ]
+}

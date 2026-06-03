@@ -1,0 +1,89 @@
+{
+  "case_id": "C4_STYLE",
+  "variant": "explicit",
+  "model_name": "dry-run-stub",
+  "n_completions": 512,
+  "n_prompts": 16,
+  "invalid_metadata_rate": 0.05859375,
+  "diversity": {
+    "distinct_2": 0.006002400960384154,
+    "distinct_3": 0.007938680536545305,
+    "repetition_rate": 0.0,
+    "type_token_ratio": 0.004490057729313663
+  },
+  "axes": [
+    {
+      "axis": "style",
+      "field": "style",
+      "n": 512,
+      "scored": true,
+      "support": [
+        "definition_first",
+        "analogy_centered",
+        "socratic_tutor",
+        "formal_academic",
+        "unknown"
+      ],
+      "counts": {
+        "definition_first": 280,
+        "analogy_centered": 64,
+        "socratic_tutor": 72,
+        "formal_academic": 66,
+        "unknown": 30
+      },
+      "empirical": {
+        "definition_first": 0.546875,
+        "analogy_centered": 0.125,
+        "socratic_tutor": 0.140625,
+        "formal_academic": 0.12890625,
+        "unknown": 0.05859375
+      },
+      "target": {
+        "definition_first": 0.3,
+        "analogy_centered": 0.3,
+        "socratic_tutor": 0.2,
+        "formal_academic": 0.2
+      },
+      "unknown_rate": 0.05859375,
+      "normalized_entropy": 0.8222497959924756,
+      "kl_vs_uniform": 2.3485638452222677,
+      "empirical_scored": {
+        "definition_first": 0.5809128630705395,
+        "analogy_centered": 0.13278008298755187,
+        "socratic_tutor": 0.14937759336099585,
+        "formal_academic": 0.13692946058091288
+      },
+      "tv": 0.2809128630705394,
+      "l1": 0.5618257261410788,
+      "l2": 0.33677152237188496,
+      "kl_vs_target": 0.25994489242922103,
+      "tv_ci": {
+        "point": 0.2809128630705394,
+        "lo": 0.24183232347783817,
+        "hi": 0.31946202667629214
+      },
+      "proportion_ci": {
+        "definition_first": {
+          "point": 0.546875,
+          "lo": 0.50390625,
+          "hi": 0.587890625
+        },
+        "analogy_centered": {
+          "point": 0.125,
+          "lo": 0.091796875,
+          "hi": 0.158203125
+        },
+        "socratic_tutor": {
+          "point": 0.140625,
+          "lo": 0.11127929687500004,
+          "hi": 0.169921875
+        },
+        "formal_academic": {
+          "point": 0.12890625,
+          "lo": 0.107421875,
+          "hi": 0.150390625
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "case_id": "C2_FORMAT",
+  "variant": "weak",
+  "model_name": "dry-run-stub",
+  "n_completions": 768,
+  "n_prompts": 24,
+  "invalid_metadata_rate": 0.032552083333333336,
+  "diversity": {
+    "distinct_2": 0.00811930405965203,
+    "distinct_3": 0.009872792861211316,
+    "repetition_rate": 0.07987369162640902,
+    "type_token_ratio": 0.005585770983389681
+  },
+  "axes": [
+    {
+      "axis": "format",
+      "field": "format",
+      "n": 768,
+      "scored": true,
+      "support": [
+        "json",
+        "markdown_table",
+        "numbered_list",
+        "plain_paragraph",
+        "unknown"
+      ],
+      "counts": {
+        "json": 526,
+        "markdown_table": 71,
+        "numbered_list": 74,
+        "plain_paragraph": 72,
+        "unknown": 25
+      },
+      "empirical": {
+        "json": 0.6848958333333334,
+        "markdown_table": 0.09244791666666667,
+        "numbered_list": 0.09635416666666667,
+        "plain_paragraph": 0.09375,
+        "unknown": 0.032552083333333336
+      },
+      "target": {
+        "json": 0.25,
+        "markdown_table": 0.25,
+        "numbered_list": 0.25,
+        "plain_paragraph": 0.25
+      },
+      "unknown_rate": 0.032552083333333336,
+      "normalized_entropy": 0.6671034243520894,
+      "kl_vs_uniform": 1.7347151245699237,
+      "empirical_scored": {
+        "json": 0.7079407806191117,
+        "markdown_table": 0.0955585464333782,
+        "numbered_list": 0.09959623149394348,
+        "plain_paragraph": 0.09690444145356662
+      },
+      "tv": 0.4579407806191117,
+      "l1": 0.9158815612382234,
+      "l2": 0.5287924590624191,
+      "kl_vs_target": 0.6657931512958212,
+      "tv_ci": {
+        "point": 0.4579407806191117,
+        "lo": 0.4238131991051454,
+        "hi": 0.48889636608344544
+      },
+      "proportion_ci": {
+        "json": {
+          "point": 0.6848958333333334,
+          "lo": 0.6510416666666666,
+          "hi": 0.7161458333333334
+        },
+        "markdown_table": {
+          "point": 0.09244791666666667,
+          "lo": 0.0703125,
+          "hi": 0.11588541666666667
+        },
+        "numbered_list": {
+          "point": 0.09635416666666667,
+          "lo": 0.06770833333333333,
+          "hi": 0.125
+        },
+        "plain_paragraph": {
+          "point": 0.09375,
+          "lo": 0.07421875,
+          "hi": 0.11197916666666667
+        }
+      }
+    }
+  ],
+  "format_label_matches_body_rate": 0.8515625
+}

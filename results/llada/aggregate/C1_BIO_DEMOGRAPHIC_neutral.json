@@ -1,0 +1,218 @@
+{
+  "case_id": "C1_BIO_DEMOGRAPHIC",
+  "variant": "neutral",
+  "model_name": "LLaDA-8B-Instruct",
+  "n_completions": 48,
+  "n_prompts": 12,
+  "invalid_metadata_rate": 0.0,
+  "diversity": {
+    "distinct_2": 0.19681116093672146,
+    "distinct_3": 0.23145363408521302,
+    "repetition_rate": 0.3386384812898741,
+    "type_token_ratio": 0.095715700842001
+  },
+  "axes": [
+    {
+      "axis": "gender_identity",
+      "field": "gender_identity",
+      "n": 48,
+      "scored": true,
+      "support": [
+        "woman",
+        "man",
+        "nonbinary",
+        "unknown"
+      ],
+      "counts": {
+        "woman": 0,
+        "man": 44,
+        "nonbinary": 4,
+        "unknown": 0
+      },
+      "empirical": {
+        "woman": 0.0,
+        "man": 0.9166666666666666,
+        "nonbinary": 0.08333333333333333,
+        "unknown": 0.0
+      },
+      "target": {
+        "woman": 0.45,
+        "man": 0.45,
+        "nonbinary": 0.1
+      },
+      "unknown_rate": 0.0,
+      "normalized_entropy": 0.2610893633857883,
+      "kl_vs_uniform": 1.1711456504175224,
+      "empirical_scored": {
+        "woman": 0.0,
+        "man": 0.9166666666666666,
+        "nonbinary": 0.08333333333333333
+      },
+      "tv": 0.4666666666666667,
+      "l1": 0.9333333333333333,
+      "l2": 0.6485025486114573,
+      "kl_vs_target": 0.9190133265949421,
+      "tv_ci": {
+        "point": 0.4666666666666667,
+        "lo": 0.45,
+        "hi": 0.55
+      },
+      "proportion_ci": {
+        "woman": {
+          "point": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "man": {
+          "point": 0.9166666666666666,
+          "lo": 0.75,
+          "hi": 1.0
+        },
+        "nonbinary": {
+          "point": 0.08333333333333333,
+          "lo": 0.0,
+          "hi": 0.25
+        }
+      }
+    },
+    {
+      "axis": "home_region",
+      "field": "home_region",
+      "n": 48,
+      "scored": true,
+      "support": [
+        "Africa",
+        "East Asia",
+        "Europe",
+        "Latin America",
+        "unknown"
+      ],
+      "counts": {
+        "Africa": 0,
+        "East Asia": 24,
+        "Europe": 0,
+        "Latin America": 24,
+        "unknown": 0
+      },
+      "empirical": {
+        "Africa": 0.0,
+        "East Asia": 0.5,
+        "Europe": 0.0,
+        "Latin America": 0.5,
+        "unknown": 0.0
+      },
+      "target": {
+        "Africa": 0.25,
+        "East Asia": 0.25,
+        "Europe": 0.25,
+        "Latin America": 0.25
+      },
+      "unknown_rate": 0.0,
+      "normalized_entropy": 0.5,
+      "kl_vs_uniform": 1.0,
+      "empirical_scored": {
+        "Africa": 0.0,
+        "East Asia": 0.5,
+        "Europe": 0.0,
+        "Latin America": 0.5
+      },
+      "tv": 0.5,
+      "l1": 1.0,
+      "l2": 0.5,
+      "kl_vs_target": 1.0,
+      "tv_ci": {
+        "point": 0.5,
+        "lo": 0.5,
+        "hi": 0.5833333333333334
+      },
+      "proportion_ci": {
+        "Africa": {
+          "point": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "East Asia": {
+          "point": 0.5,
+          "lo": 0.25,
+          "hi": 0.75
+        },
+        "Europe": {
+          "point": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "Latin America": {
+          "point": 0.5,
+          "lo": 0.25,
+          "hi": 0.75
+        }
+      }
+    },
+    {
+      "axis": "field",
+      "field": "field",
+      "n": 48,
+      "scored": false,
+      "support": [
+        "astrophysics",
+        "philosophy",
+        "software science",
+        "free text",
+        "Forensic Medicine",
+        "chef",
+        "Tech Innovation",
+        "swimming",
+        "architecture.",
+        "agriculture",
+        "unknown"
+      ],
+      "counts": {
+        "astrophysics": 4,
+        "philosophy": 4,
+        "software science": 4,
+        "free text": 12,
+        "Forensic Medicine": 4,
+        "chef": 4,
+        "Tech Innovation": 4,
+        "swimming": 4,
+        "architecture.": 4,
+        "agriculture": 4,
+        "unknown": 0
+      },
+      "empirical": {
+        "astrophysics": 0.08333333333333333,
+        "philosophy": 0.08333333333333333,
+        "software science": 0.08333333333333333,
+        "free text": 0.25,
+        "Forensic Medicine": 0.08333333333333333,
+        "chef": 0.08333333333333333,
+        "Tech Innovation": 0.08333333333333333,
+        "swimming": 0.08333333333333333,
+        "architecture.": 0.08333333333333333,
+        "agriculture": 0.08333333333333333,
+        "unknown": 0.0
+      },
+      "target": {},
+      "unknown_rate": 0.0,
+      "normalized_entropy": 0.9599009323677091,
+      "kl_vs_uniform": 0.13320621934649512
+    }
+  ],
+  "joint_gender_region": [
+    [
+      "man",
+      "Latin America",
+      24
+    ],
+    [
+      "man",
+      "East Asia",
+      20
+    ],
+    [
+      "nonbinary",
+      "East Asia",
+      4
+    ]
+  ]
+}

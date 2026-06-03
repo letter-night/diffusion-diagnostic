@@ -1,0 +1,90 @@
+{
+  "case_id": "C2_FORMAT",
+  "variant": "neutral",
+  "model_name": "LLaDA-8B-Instruct",
+  "n_completions": 48,
+  "n_prompts": 12,
+  "invalid_metadata_rate": 0.0,
+  "diversity": {
+    "distinct_2": 0.23135755258126195,
+    "distinct_3": 0.24510763209393346,
+    "repetition_rate": 0.17973982946494313,
+    "type_token_ratio": 0.15467289719626168
+  },
+  "axes": [
+    {
+      "axis": "format",
+      "field": "format",
+      "n": 48,
+      "scored": true,
+      "support": [
+        "json",
+        "markdown_table",
+        "numbered_list",
+        "plain_paragraph",
+        "unknown"
+      ],
+      "counts": {
+        "json": 0,
+        "markdown_table": 0,
+        "numbered_list": 0,
+        "plain_paragraph": 44,
+        "unknown": 4
+      },
+      "empirical": {
+        "json": 0.0,
+        "markdown_table": 0.0,
+        "numbered_list": 0.0,
+        "plain_paragraph": 0.9166666666666666,
+        "unknown": 0.08333333333333333
+      },
+      "target": {
+        "json": 0.25,
+        "markdown_table": 0.25,
+        "numbered_list": 0.25,
+        "plain_paragraph": 0.25
+      },
+      "unknown_rate": 0.08333333333333333,
+      "normalized_entropy": 0.0,
+      "kl_vs_uniform": 4.741444577917062,
+      "empirical_scored": {
+        "json": 0.0,
+        "markdown_table": 0.0,
+        "numbered_list": 0.0,
+        "plain_paragraph": 1.0
+      },
+      "tv": 0.75,
+      "l1": 1.5,
+      "l2": 0.8660254037844386,
+      "kl_vs_target": 2.0,
+      "tv_ci": {
+        "point": 0.75,
+        "lo": 0.75,
+        "hi": 0.75
+      },
+      "proportion_ci": {
+        "json": {
+          "point": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "markdown_table": {
+          "point": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "numbered_list": {
+          "point": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "plain_paragraph": {
+          "point": 0.9166666666666666,
+          "lo": 0.75,
+          "hi": 1.0
+        }
+      }
+    }
+  ],
+  "format_label_matches_body_rate": 0.6666666666666666
+}

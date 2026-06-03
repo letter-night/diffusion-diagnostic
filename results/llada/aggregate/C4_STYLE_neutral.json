@@ -1,0 +1,89 @@
+{
+  "case_id": "C4_STYLE",
+  "variant": "neutral",
+  "model_name": "LLaDA-8B-Instruct",
+  "n_completions": 48,
+  "n_prompts": 12,
+  "invalid_metadata_rate": 0.0,
+  "diversity": {
+    "distinct_2": 0.16675,
+    "distinct_3": 0.18446356275303644,
+    "repetition_rate": 0.33117314100426815,
+    "type_token_ratio": 0.09486166007905138
+  },
+  "axes": [
+    {
+      "axis": "style",
+      "field": "style",
+      "n": 48,
+      "scored": true,
+      "support": [
+        "definition_first",
+        "analogy_centered",
+        "socratic_tutor",
+        "formal_academic",
+        "unknown"
+      ],
+      "counts": {
+        "definition_first": 0,
+        "analogy_centered": 48,
+        "socratic_tutor": 0,
+        "formal_academic": 0,
+        "unknown": 0
+      },
+      "empirical": {
+        "definition_first": 0.0,
+        "analogy_centered": 1.0,
+        "socratic_tutor": 0.0,
+        "formal_academic": 0.0,
+        "unknown": 0.0
+      },
+      "target": {
+        "definition_first": 0.3,
+        "analogy_centered": 0.3,
+        "socratic_tutor": 0.2,
+        "formal_academic": 0.2
+      },
+      "unknown_rate": 0.0,
+      "normalized_entropy": 0.0,
+      "kl_vs_uniform": 2.0,
+      "empirical_scored": {
+        "definition_first": 0.0,
+        "analogy_centered": 1.0,
+        "socratic_tutor": 0.0,
+        "formal_academic": 0.0
+      },
+      "tv": 0.7,
+      "l1": 1.4,
+      "l2": 0.812403840463596,
+      "kl_vs_target": 1.7369655941662063,
+      "tv_ci": {
+        "point": 0.7,
+        "lo": 0.7,
+        "hi": 0.7
+      },
+      "proportion_ci": {
+        "definition_first": {
+          "point": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "analogy_centered": {
+          "point": 1.0,
+          "lo": 1.0,
+          "hi": 1.0
+        },
+        "socratic_tutor": {
+          "point": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "formal_academic": {
+          "point": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        }
+      }
+    }
+  ]
+}

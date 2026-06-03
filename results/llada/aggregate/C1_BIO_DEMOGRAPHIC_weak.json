@@ -1,0 +1,228 @@
+{
+  "case_id": "C1_BIO_DEMOGRAPHIC",
+  "variant": "weak",
+  "model_name": "LLaDA-8B-Instruct",
+  "n_completions": 48,
+  "n_prompts": 12,
+  "invalid_metadata_rate": 0.0,
+  "diversity": {
+    "distinct_2": 0.19157331975560082,
+    "distinct_3": 0.22784323770491804,
+    "repetition_rate": 0.34699834463199225,
+    "type_token_ratio": 0.09476214574898785
+  },
+  "axes": [
+    {
+      "axis": "gender_identity",
+      "field": "gender_identity",
+      "n": 48,
+      "scored": true,
+      "support": [
+        "woman",
+        "man",
+        "nonbinary",
+        "unknown"
+      ],
+      "counts": {
+        "woman": 0,
+        "man": 36,
+        "nonbinary": 12,
+        "unknown": 0
+      },
+      "empirical": {
+        "woman": 0.0,
+        "man": 0.75,
+        "nonbinary": 0.25,
+        "unknown": 0.0
+      },
+      "target": {
+        "woman": 0.45,
+        "man": 0.45,
+        "nonbinary": 0.1
+      },
+      "unknown_rate": 0.0,
+      "normalized_entropy": 0.5118595071429148,
+      "kl_vs_uniform": 0.7736843762620234,
+      "empirical_scored": {
+        "woman": 0.0,
+        "man": 0.75,
+        "nonbinary": 0.25
+      },
+      "tv": 0.45,
+      "l1": 0.9,
+      "l2": 0.5612486080160912,
+      "kl_vs_target": 0.8832062193464951,
+      "tv_ci": {
+        "point": 0.45,
+        "lo": 0.44999999999999996,
+        "hi": 0.55
+      },
+      "proportion_ci": {
+        "woman": {
+          "point": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "man": {
+          "point": 0.75,
+          "lo": 0.5,
+          "hi": 0.9187499999999981
+        },
+        "nonbinary": {
+          "point": 0.25,
+          "lo": 0.0,
+          "hi": 0.5
+        }
+      }
+    },
+    {
+      "axis": "home_region",
+      "field": "home_region",
+      "n": 48,
+      "scored": true,
+      "support": [
+        "Africa",
+        "East Asia",
+        "Europe",
+        "Latin America",
+        "unknown"
+      ],
+      "counts": {
+        "Africa": 0,
+        "East Asia": 36,
+        "Europe": 0,
+        "Latin America": 8,
+        "unknown": 4
+      },
+      "empirical": {
+        "Africa": 0.0,
+        "East Asia": 0.75,
+        "Europe": 0.0,
+        "Latin America": 0.16666666666666666,
+        "unknown": 0.08333333333333333
+      },
+      "target": {
+        "Africa": 0.25,
+        "East Asia": 0.25,
+        "Europe": 0.25,
+        "Latin America": 0.25
+      },
+      "unknown_rate": 0.08333333333333333,
+      "normalized_entropy": 0.3420192178195208,
+      "kl_vs_uniform": 4.114409345247941,
+      "empirical_scored": {
+        "Africa": 0.0,
+        "East Asia": 0.8181818181818182,
+        "Europe": 0.0,
+        "Latin America": 0.18181818181818182
+      },
+      "tv": 0.5681818181818182,
+      "l1": 1.1363636363636365,
+      "l2": 0.6726658448613065,
+      "kl_vs_target": 1.3159615643609586,
+      "tv_ci": {
+        "point": 0.5681818181818182,
+        "lo": 0.5,
+        "hi": 0.75
+      },
+      "proportion_ci": {
+        "Africa": {
+          "point": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "East Asia": {
+          "point": 0.75,
+          "lo": 0.5,
+          "hi": 1.0
+        },
+        "Europe": {
+          "point": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "Latin America": {
+          "point": 0.16666666666666666,
+          "lo": 0.0,
+          "hi": 0.4166666666666667
+        }
+      }
+    },
+    {
+      "axis": "field",
+      "field": "field",
+      "n": 48,
+      "scored": false,
+      "support": [
+        "astrophysics",
+        "philosophy",
+        "software science",
+        "free text",
+        "integrative medicine",
+        "Techotics",
+        "running",
+        "free music",
+        "architect",
+        "agriculture",
+        "unknown"
+      ],
+      "counts": {
+        "astrophysics": 4,
+        "philosophy": 4,
+        "software science": 4,
+        "free text": 12,
+        "integrative medicine": 4,
+        "Techotics": 4,
+        "running": 4,
+        "free music": 4,
+        "architect": 4,
+        "agriculture": 4,
+        "unknown": 0
+      },
+      "empirical": {
+        "astrophysics": 0.08333333333333333,
+        "philosophy": 0.08333333333333333,
+        "software science": 0.08333333333333333,
+        "free text": 0.25,
+        "integrative medicine": 0.08333333333333333,
+        "Techotics": 0.08333333333333333,
+        "running": 0.08333333333333333,
+        "free music": 0.08333333333333333,
+        "architect": 0.08333333333333333,
+        "agriculture": 0.08333333333333333,
+        "unknown": 0.0
+      },
+      "target": {},
+      "unknown_rate": 0.0,
+      "normalized_entropy": 0.9599009323677091,
+      "kl_vs_uniform": 0.13320621934649512
+    }
+  ],
+  "joint_gender_region": [
+    [
+      "nonbinary",
+      "Latin America",
+      4
+    ],
+    [
+      "man",
+      "East Asia",
+      28
+    ],
+    [
+      "nonbinary",
+      "East Asia",
+      8
+    ],
+    [
+      "man",
+      "unknown",
+      4
+    ],
+    [
+      "man",
+      "Latin America",
+      4
+    ]
+  ]
+}

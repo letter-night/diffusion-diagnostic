@@ -1,0 +1,90 @@
+{
+  "case_id": "C2_FORMAT",
+  "variant": "explicit",
+  "model_name": "LLaDA-8B-Instruct",
+  "n_completions": 48,
+  "n_prompts": 12,
+  "invalid_metadata_rate": 0.0,
+  "diversity": {
+    "distinct_2": 0.17123076923076924,
+    "distinct_3": 0.20086794792312462,
+    "repetition_rate": 0.49439432017020013,
+    "type_token_ratio": 0.09117287721441661
+  },
+  "axes": [
+    {
+      "axis": "format",
+      "field": "format",
+      "n": 48,
+      "scored": true,
+      "support": [
+        "json",
+        "markdown_table",
+        "numbered_list",
+        "plain_paragraph",
+        "unknown"
+      ],
+      "counts": {
+        "json": 16,
+        "markdown_table": 0,
+        "numbered_list": 4,
+        "plain_paragraph": 8,
+        "unknown": 20
+      },
+      "empirical": {
+        "json": 0.3333333333333333,
+        "markdown_table": 0.0,
+        "numbered_list": 0.08333333333333333,
+        "plain_paragraph": 0.16666666666666666,
+        "unknown": 0.4166666666666667
+      },
+      "target": {
+        "json": 0.25,
+        "markdown_table": 0.25,
+        "numbered_list": 0.25,
+        "plain_paragraph": 0.25
+      },
+      "unknown_rate": 0.4166666666666667,
+      "normalized_entropy": 0.6893917467430878,
+      "kl_vs_uniform": 15.99214801325206,
+      "empirical_scored": {
+        "json": 0.5714285714285714,
+        "markdown_table": 0.0,
+        "numbered_list": 0.14285714285714285,
+        "plain_paragraph": 0.2857142857142857
+      },
+      "tv": 0.3571428571428571,
+      "l1": 0.7142857142857142,
+      "l2": 0.4225771273642583,
+      "kl_vs_target": 0.6212165065138244,
+      "tv_ci": {
+        "point": 0.3571428571428571,
+        "lo": 0.24999999999999997,
+        "hi": 0.75
+      },
+      "proportion_ci": {
+        "json": {
+          "point": 0.3333333333333333,
+          "lo": 0.08333333333333333,
+          "hi": 0.5833333333333334
+        },
+        "markdown_table": {
+          "point": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "numbered_list": {
+          "point": 0.08333333333333333,
+          "lo": 0.0,
+          "hi": 0.25
+        },
+        "plain_paragraph": {
+          "point": 0.16666666666666666,
+          "lo": 0.0,
+          "hi": 0.4166666666666667
+        }
+      }
+    }
+  ],
+  "format_label_matches_body_rate": 0.0
+}

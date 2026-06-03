@@ -1,0 +1,89 @@
+{
+  "case_id": "C3_TOPIC",
+  "variant": "explicit",
+  "model_name": "LLaDA-8B-Instruct",
+  "n_completions": 48,
+  "n_prompts": 12,
+  "invalid_metadata_rate": 0.0,
+  "diversity": {
+    "distinct_2": 0.1962025316455696,
+    "distinct_3": 0.21475195822454307,
+    "repetition_rate": 0.08644424230323822,
+    "type_token_ratio": 0.12162162162162163
+  },
+  "axes": [
+    {
+      "axis": "topic",
+      "field": "topic",
+      "n": 48,
+      "scored": true,
+      "support": [
+        "evaluation",
+        "safety",
+        "efficiency",
+        "multilinguality",
+        "unknown"
+      ],
+      "counts": {
+        "evaluation": 16,
+        "safety": 4,
+        "efficiency": 24,
+        "multilinguality": 4,
+        "unknown": 0
+      },
+      "empirical": {
+        "evaluation": 0.3333333333333333,
+        "safety": 0.08333333333333333,
+        "efficiency": 0.5,
+        "multilinguality": 0.08333333333333333,
+        "unknown": 0.0
+      },
+      "target": {
+        "evaluation": 0.25,
+        "safety": 0.25,
+        "efficiency": 0.25,
+        "multilinguality": 0.25
+      },
+      "unknown_rate": 0.0,
+      "normalized_entropy": 0.8129072918469558,
+      "kl_vs_uniform": 0.3741854163060885,
+      "empirical_scored": {
+        "evaluation": 0.3333333333333333,
+        "safety": 0.08333333333333333,
+        "efficiency": 0.5,
+        "multilinguality": 0.08333333333333333
+      },
+      "tv": 0.33333333333333337,
+      "l1": 0.6666666666666667,
+      "l2": 0.3535533905932738,
+      "kl_vs_target": 0.3741854163060885,
+      "tv_ci": {
+        "point": 0.33333333333333337,
+        "lo": 0.16666666666666666,
+        "hi": 0.5
+      },
+      "proportion_ci": {
+        "evaluation": {
+          "point": 0.3333333333333333,
+          "lo": 0.08333333333333333,
+          "hi": 0.5833333333333334
+        },
+        "safety": {
+          "point": 0.08333333333333333,
+          "lo": 0.0,
+          "hi": 0.25
+        },
+        "efficiency": {
+          "point": 0.5,
+          "lo": 0.25,
+          "hi": 0.75
+        },
+        "multilinguality": {
+          "point": 0.08333333333333333,
+          "lo": 0.0,
+          "hi": 0.25
+        }
+      }
+    }
+  ]
+}

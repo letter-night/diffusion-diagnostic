@@ -1,0 +1,58 @@
+case_id,variant,model,axis,bucket,achieved,target,ci_lo,ci_hi,tv,l1,l2,kl_vs_target,norm_entropy,unknown_rate,invalid_metadata_rate
+C2_FORMAT,neutral,LLaDA-8B-Instruct,format,json,0.0,0.25,0.0,0.0,0.75,1.5,0.866,2.0,0.0,0.0833,0.0
+C2_FORMAT,neutral,LLaDA-8B-Instruct,format,markdown_table,0.0,0.25,0.0,0.0,0.75,1.5,0.866,2.0,0.0,0.0833,0.0
+C2_FORMAT,neutral,LLaDA-8B-Instruct,format,numbered_list,0.0,0.25,0.0,0.0,0.75,1.5,0.866,2.0,0.0,0.0833,0.0
+C2_FORMAT,neutral,LLaDA-8B-Instruct,format,plain_paragraph,1.0,0.25,0.75,1.0,0.75,1.5,0.866,2.0,0.0,0.0833,0.0
+C2_FORMAT,weak,LLaDA-8B-Instruct,format,json,0.0,0.25,0.0,0.0,0.75,1.5,0.866,2.0,0.0,0.0,0.0
+C2_FORMAT,weak,LLaDA-8B-Instruct,format,markdown_table,0.0,0.25,0.0,0.0,0.75,1.5,0.866,2.0,0.0,0.0,0.0
+C2_FORMAT,weak,LLaDA-8B-Instruct,format,numbered_list,0.0,0.25,0.0,0.0,0.75,1.5,0.866,2.0,0.0,0.0,0.0
+C2_FORMAT,weak,LLaDA-8B-Instruct,format,plain_paragraph,1.0,0.25,1.0,1.0,0.75,1.5,0.866,2.0,0.0,0.0,0.0
+C2_FORMAT,explicit,LLaDA-8B-Instruct,format,json,0.5714,0.25,0.0833,0.5833,0.3571,0.7143,0.4226,0.6212,0.6894,0.4167,0.0
+C2_FORMAT,explicit,LLaDA-8B-Instruct,format,markdown_table,0.0,0.25,0.0,0.0,0.3571,0.7143,0.4226,0.6212,0.6894,0.4167,0.0
+C2_FORMAT,explicit,LLaDA-8B-Instruct,format,numbered_list,0.1429,0.25,0.0,0.25,0.3571,0.7143,0.4226,0.6212,0.6894,0.4167,0.0
+C2_FORMAT,explicit,LLaDA-8B-Instruct,format,plain_paragraph,0.2857,0.25,0.0,0.4167,0.3571,0.7143,0.4226,0.6212,0.6894,0.4167,0.0
+C4_STYLE,neutral,LLaDA-8B-Instruct,style,definition_first,0.0,0.3,0.0,0.0,0.7,1.4,0.8124,1.737,0.0,0.0,0.0
+C4_STYLE,neutral,LLaDA-8B-Instruct,style,analogy_centered,1.0,0.3,1.0,1.0,0.7,1.4,0.8124,1.737,0.0,0.0,0.0
+C4_STYLE,neutral,LLaDA-8B-Instruct,style,socratic_tutor,0.0,0.2,0.0,0.0,0.7,1.4,0.8124,1.737,0.0,0.0,0.0
+C4_STYLE,neutral,LLaDA-8B-Instruct,style,formal_academic,0.0,0.2,0.0,0.0,0.7,1.4,0.8124,1.737,0.0,0.0,0.0
+C4_STYLE,weak,LLaDA-8B-Instruct,style,definition_first,0.0,0.3,0.0,0.0,0.7,1.4,0.8124,1.737,0.0,0.0,0.0
+C4_STYLE,weak,LLaDA-8B-Instruct,style,analogy_centered,1.0,0.3,1.0,1.0,0.7,1.4,0.8124,1.737,0.0,0.0,0.0
+C4_STYLE,weak,LLaDA-8B-Instruct,style,socratic_tutor,0.0,0.2,0.0,0.0,0.7,1.4,0.8124,1.737,0.0,0.0,0.0
+C4_STYLE,weak,LLaDA-8B-Instruct,style,formal_academic,0.0,0.2,0.0,0.0,0.7,1.4,0.8124,1.737,0.0,0.0,0.0
+C4_STYLE,explicit,LLaDA-8B-Instruct,style,definition_first,0.0,0.3,0.0,0.0,0.7,1.4,0.8124,1.737,0.0,0.0,0.0
+C4_STYLE,explicit,LLaDA-8B-Instruct,style,analogy_centered,1.0,0.3,1.0,1.0,0.7,1.4,0.8124,1.737,0.0,0.0,0.0
+C4_STYLE,explicit,LLaDA-8B-Instruct,style,socratic_tutor,0.0,0.2,0.0,0.0,0.7,1.4,0.8124,1.737,0.0,0.0,0.0
+C4_STYLE,explicit,LLaDA-8B-Instruct,style,formal_academic,0.0,0.2,0.0,0.0,0.7,1.4,0.8124,1.737,0.0,0.0,0.0
+C3_TOPIC,neutral,LLaDA-8B-Instruct,topic,evaluation,0.6154,0.25,0.3333,0.8571,0.3654,0.7308,0.4535,0.6653,0.6673,0.0,0.0
+C3_TOPIC,neutral,LLaDA-8B-Instruct,topic,safety,0.1538,0.25,0.0,0.4167,0.3654,0.7308,0.4535,0.6653,0.6673,0.0,0.0
+C3_TOPIC,neutral,LLaDA-8B-Instruct,topic,efficiency,0.2308,0.25,0.0,0.4675,0.3654,0.7308,0.4535,0.6653,0.6673,0.0,0.0
+C3_TOPIC,neutral,LLaDA-8B-Instruct,topic,multilinguality,0.0,0.25,0.0,0.0,0.3654,0.7308,0.4535,0.6653,0.6673,0.0,0.0
+C3_TOPIC,weak,LLaDA-8B-Instruct,topic,evaluation,0.75,0.25,0.5,0.9167,0.5,1.0,0.5893,0.9591,0.5204,0.0,0.0
+C3_TOPIC,weak,LLaDA-8B-Instruct,topic,safety,0.0833,0.25,0.0,0.25,0.5,1.0,0.5893,0.9591,0.5204,0.0,0.0
+C3_TOPIC,weak,LLaDA-8B-Instruct,topic,efficiency,0.1667,0.25,0.0,0.4167,0.5,1.0,0.5893,0.9591,0.5204,0.0,0.0
+C3_TOPIC,weak,LLaDA-8B-Instruct,topic,multilinguality,0.0,0.25,0.0,0.0,0.5,1.0,0.5893,0.9591,0.5204,0.0,0.0
+C3_TOPIC,explicit,LLaDA-8B-Instruct,topic,evaluation,0.3333,0.25,0.0833,0.5833,0.3333,0.6667,0.3536,0.3742,0.8129,0.0,0.0
+C3_TOPIC,explicit,LLaDA-8B-Instruct,topic,safety,0.0833,0.25,0.0,0.25,0.3333,0.6667,0.3536,0.3742,0.8129,0.0,0.0
+C3_TOPIC,explicit,LLaDA-8B-Instruct,topic,efficiency,0.5,0.25,0.25,0.75,0.3333,0.6667,0.3536,0.3742,0.8129,0.0,0.0
+C3_TOPIC,explicit,LLaDA-8B-Instruct,topic,multilinguality,0.0833,0.25,0.0,0.25,0.3333,0.6667,0.3536,0.3742,0.8129,0.0,0.0
+C1_BIO_DEMOGRAPHIC,neutral,LLaDA-8B-Instruct,gender_identity,woman,0.0,0.45,0.0,0.0,0.4667,0.9333,0.6485,0.919,0.2611,0.0,0.0
+C1_BIO_DEMOGRAPHIC,neutral,LLaDA-8B-Instruct,gender_identity,man,0.9167,0.45,0.75,1.0,0.4667,0.9333,0.6485,0.919,0.2611,0.0,0.0
+C1_BIO_DEMOGRAPHIC,neutral,LLaDA-8B-Instruct,gender_identity,nonbinary,0.0833,0.1,0.0,0.25,0.4667,0.9333,0.6485,0.919,0.2611,0.0,0.0
+C1_BIO_DEMOGRAPHIC,neutral,LLaDA-8B-Instruct,home_region,Africa,0.0,0.25,0.0,0.0,0.5,1.0,0.5,1.0,0.5,0.0,0.0
+C1_BIO_DEMOGRAPHIC,neutral,LLaDA-8B-Instruct,home_region,East Asia,0.5,0.25,0.25,0.75,0.5,1.0,0.5,1.0,0.5,0.0,0.0
+C1_BIO_DEMOGRAPHIC,neutral,LLaDA-8B-Instruct,home_region,Europe,0.0,0.25,0.0,0.0,0.5,1.0,0.5,1.0,0.5,0.0,0.0
+C1_BIO_DEMOGRAPHIC,neutral,LLaDA-8B-Instruct,home_region,Latin America,0.5,0.25,0.25,0.75,0.5,1.0,0.5,1.0,0.5,0.0,0.0
+C1_BIO_DEMOGRAPHIC,weak,LLaDA-8B-Instruct,gender_identity,woman,0.0,0.45,0.0,0.0,0.45,0.9,0.5612,0.8832,0.5119,0.0,0.0
+C1_BIO_DEMOGRAPHIC,weak,LLaDA-8B-Instruct,gender_identity,man,0.75,0.45,0.5,0.9187,0.45,0.9,0.5612,0.8832,0.5119,0.0,0.0
+C1_BIO_DEMOGRAPHIC,weak,LLaDA-8B-Instruct,gender_identity,nonbinary,0.25,0.1,0.0,0.5,0.45,0.9,0.5612,0.8832,0.5119,0.0,0.0
+C1_BIO_DEMOGRAPHIC,weak,LLaDA-8B-Instruct,home_region,Africa,0.0,0.25,0.0,0.0,0.5682,1.1364,0.6727,1.316,0.342,0.0833,0.0
+C1_BIO_DEMOGRAPHIC,weak,LLaDA-8B-Instruct,home_region,East Asia,0.8182,0.25,0.5,1.0,0.5682,1.1364,0.6727,1.316,0.342,0.0833,0.0
+C1_BIO_DEMOGRAPHIC,weak,LLaDA-8B-Instruct,home_region,Europe,0.0,0.25,0.0,0.0,0.5682,1.1364,0.6727,1.316,0.342,0.0833,0.0
+C1_BIO_DEMOGRAPHIC,weak,LLaDA-8B-Instruct,home_region,Latin America,0.1818,0.25,0.0,0.4167,0.5682,1.1364,0.6727,1.316,0.342,0.0833,0.0
+C1_BIO_DEMOGRAPHIC,explicit,LLaDA-8B-Instruct,gender_identity,woman,0.25,0.45,0.0,0.5,0.3,0.6,0.3742,0.3407,0.5119,0.0,0.0
+C1_BIO_DEMOGRAPHIC,explicit,LLaDA-8B-Instruct,gender_identity,man,0.75,0.45,0.5,1.0,0.3,0.6,0.3742,0.3407,0.5119,0.0,0.0
+C1_BIO_DEMOGRAPHIC,explicit,LLaDA-8B-Instruct,gender_identity,nonbinary,0.0,0.1,0.0,0.0,0.3,0.6,0.3742,0.3407,0.5119,0.0,0.0
+C1_BIO_DEMOGRAPHIC,explicit,LLaDA-8B-Instruct,home_region,Africa,0.0909,0.25,0.0,0.25,0.4091,0.8182,0.4336,0.6778,0.6611,0.0833,0.0
+C1_BIO_DEMOGRAPHIC,explicit,LLaDA-8B-Instruct,home_region,East Asia,0.5455,0.25,0.25,0.75,0.4091,0.8182,0.4336,0.6778,0.6611,0.0833,0.0
+C1_BIO_DEMOGRAPHIC,explicit,LLaDA-8B-Instruct,home_region,Europe,0.0,0.25,0.0,0.0,0.4091,0.8182,0.4336,0.6778,0.6611,0.0833,0.0
+C1_BIO_DEMOGRAPHIC,explicit,LLaDA-8B-Instruct,home_region,Latin America,0.3636,0.25,0.0833,0.5833,0.4091,0.8182,0.4336,0.6778,0.6611,0.0833,0.0
